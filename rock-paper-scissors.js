@@ -41,17 +41,4 @@ function playRound(userChoice, computerChoice, winMap) {
     console.log(`You: ${userScore} Computer: ${computerScore}`);
 }
 
-function playGame() {
-    let userChoice, computerChoice;
-
-    for (let i = 0; i < 5; i++) {
-        userChoice = getUserChoice();
-        computerChoice = getComputerChoice();
-
-        playRound(userChoice, computerChoice, winMap);
-    }
-
-    console.log(`Final score: You: ${userScore} Computer: ${computerScore}`);
-}
-
 playGame();
