@@ -49,14 +49,13 @@ a:active {
     justify-content: center;
     align-items: center;
     gap: 36px;
-    padding: 24px
+    padding: 24px;
 }
 
 .button-container {
     display: flex;
     flex-direction: column;
     gap: 12px;
-    margin-bottom: 30px;
 }
 
 .button-container button,
@@ -85,6 +84,13 @@ a:active {
 
 .button-container span {
     font-size: 24px;
+}
+
+.scoreText {
+    font-size: 20px;
+    margin: 0px;
+    padding: 0px;
+    margin-bottom: 16px;
 }
 
 .score {
