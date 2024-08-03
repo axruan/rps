@@ -1,5 +1,8 @@
 let userScore = 0;
 let computerScore = 0;
+let userChoice = "";
+let computerChoice = "";
+let winner = "";
 
 const winMap = {
     rock : "scissors",
@@ -9,7 +12,13 @@ const winMap = {
 };
 
 function isGameOver() {
-    return (userScore == 5 || computerScore == 5);
+    if (userScore == 5) {
+        winner = "You win!";
+        return true;
+    } else if (computerScore == 5) {
+        winner = "You lose!";
+        return true;
+    }
 }
 
 function getComputerChoice() {
@@ -41,13 +50,16 @@ const text = document.querySelector(".text");
 const rockBtn = document.querySelector("#rock");
 const scissorBtn = document.querySelector("#scissors");
 const paperBtn = document.querySelector("#paper");
-
-let userChoice = "";
-let computerChoice = "";
+const restartBtn = document.querySelector("#restart-button")
+const endGameModal = document.querySelector(".modal");
+const modalHeader = document.querySelector(".modal-header")
+const overlay = document.querySelector("#overlay");
 
 rockBtn.addEventListener("click", () => roundHandler("rock"));
 scissorBtn.addEventListener("click", () => roundHandler("scissors"));
 paperBtn.addEventListener("click", () => roundHandler("paper"));
+
+restartBtn.addEventListener("click", () => restart())
 
 function roundHandler(choice) {
     if (isGameOver()) {
@@ -91,9 +103,17 @@ function restart() {
     computerScore = 0;
     updateScore()
     text.textContent = "First to five wins!";
+    hideModal();
 }
 
 function openModal() {
+    modalHeader.textContent = `${winner}`;
+    endGameModal.style.display = "block";
+    overlay.style.display = "block";
+}
 
+function hideModal() {
+    endGameModal.style.display = "none";
+    overlay.style.display = "none";
 }
 
